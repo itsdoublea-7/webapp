@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrita Cyber Nation Registration</title>
+</head>
+<body>
+    <h1>Amrita Cyber Nation Registration</h1>
+    <form action="process_registration.php" method="post">
+        <!-- Basic User Information -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <!-- Hidden Form Fields (Add more as needed for your application) -->
+        <input type="hidden" name="registration_source" value="Amrita Cyber Nation">
+        <input type="hidden" name="user_role" value="Member">
+
+        <!-- CAPTCHA (You need to implement a CAPTCHA service) -->
+        <div class="g-recaptcha" data-sitekey="6LezvmwnAAAAAOz1G8R239C3UQeK5cpKd6-E57tl"></div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Register">
+    </form>
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>

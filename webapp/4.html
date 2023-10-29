@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fund Transfer Registration</title>
+    <style>
+        input {
+            user-select: none;
+        }
+    </style>
+    <script>
+        function showAlert(event) {
+            const alertMessage = "Copy, paste, and right-click are not allowed on this page.";
+            alert(alertMessage);
+            event.preventDefault();
+        }
+        document.addEventListener('copy', showAlert);
+        document.addEventListener('paste', showAlert);
+        document.addEventListener('contextmenu', showAlert);
+    </script>
+</head>
+<body>
+    <h1>Fund Transfer Registration</h1>
+    <form id="transferForm">
+        <label for="recipientAccount">Recipient Account:</label>
+        <input type="text" id="recipientAccount" name="recipientAccount" required><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

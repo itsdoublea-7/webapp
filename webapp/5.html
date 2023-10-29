@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Country Validation Form</title>
+    <script>
+        // Function to validate the selected country based on geolocation
+        function validateCountry() {
+            const selectedCountry = document.getElementById('country').value;
+            
+            // Check if the selected country is "India"
+            if (selectedCountry === 'India') {
+                // Get user's geolocation
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function(position) {
+                        // Check if geolocation matches India
+                        const userLatitude = position.coords.latitude;
+                        const userLongitude = position.coords.longitude;
+                        const indiaLatitude = 20.5937;
+                        const indiaLongitude = 78.9629;
+                        
+                        if (Math.abs(userLatitude - indiaLatitude) < 1 && Math.abs(userLongitude - indiaLongitude) < 1) {
+                            alert("Success: Geo Location matches the selected country.");
+                            // Process the form submission here if needed
+                        } else {
+                            alert("Geo Location does not match the selected country.");
+                        }
+                    });
+                } else {
+                    alert("Geolocation is not supported by your browser.");
+                }
+            } else {
+                alert("Please select 'India' as the country.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Country Validation Form</h1>
+    <form>
+        <label for="country">Select Country:</label>
+        <select id="country" name="country">
+            <option value="Select">Select</option>
+            <option value="India">India</option>
+        </select><br><br>
+        <button type="button" onclick="validateCountry()">Submit</button>
+    </form>
+</body>
+</html>
